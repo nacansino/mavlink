@@ -6196,6 +6196,18 @@
       <field type="float" name="tilt_rate">Tilt/pitch angular rate unitless (-1..1, positive: up, negative: down, NaN to be ignored).</field>
       <field type="float" name="pan_rate">Pan/yaw angular rate unitless (-1..1, positive: to the right, negative: to the left, NaN to be ignored).</field>
     </message>
+    <message id="289" name="GIMBAL_DEVICE_SET_MANUAL_CONTROL">
+      <wip/>
+      <!-- This message is work-in-progress and it can therefore change. It should NOT be used in stable production environments. -->
+      <description>Low level message to control a gimbal manually, so without units. The actual angles or angular rates will be produced by the gimbal manager based on settings and by the gimbal device if available. This message is sent by the gimbal manager to the gimbal device. Angles and rates can be set to NaN according to use case. The message should not be sent at the same time as GIMBAL_DEVICE_SET_ATTITUDE, otherwise the two setpoints would conflict.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="flags" enum="GIMBAL_DEVICE_FLAGS">Low level gimbal manager flags to use.</field>
+      <field type="float" name="tilt">Tilt/pitch angle unitless (-1..1, positive: up, negative: down, NaN to be ignored).</field>
+      <field type="float" name="pan">Pan/yaw angle unitless (-1..1, positive: to the right, negative: to the left, NaN to be ignored).</field>
+      <field type="float" name="tilt_rate">Tilt/pitch angular rate unitless (-1..1, positive: up, negative: down, NaN to be ignored).</field>
+      <field type="float" name="pan_rate">Pan/yaw angular rate unitless (-1..1, positive: to the right, negative: to the left, NaN to be ignored).</field>
+    </message>
     <message id="290" name="ESC_INFO">
       <wip/>
       <!-- This message is work-in-progress and it can therefore change. It should NOT be used in stable production environments. -->
